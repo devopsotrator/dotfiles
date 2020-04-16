@@ -1,29 +1,30 @@
-#! bash
+# Workaround for broken apropos command.
+alias apropos="$HOME/bin/apropos.macos_10.15.1"
 
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 #alias -- -='cd -'	# -   aliased to:   cd -   (doesn't play well with env_parallel)
-alias cd..='cd ..'	# catch typos
+alias cd..='cd ..' # catch typos
 
 # command defaults
-alias ls='ls -aFG'	# all, classify, ignore-case
-alias ll='ls -FGahl'    # classify, ignore-case, no-group, all, human-readable, long-list
+alias ls='ls -aFG'   # all, classify, ignore-case
+alias ll='ls -FGahl' # classify, ignore-case, no-group, all, human-readable, long-list
 alias l="ll"
-alias llt='ll -tr'	# list by last modified
-alias lls='ll -Sr'	# list by size
+alias llt='ll -tr' # list by last modified
+alias lls='ll -Sr' # list by size
 alias md='mkdir -p'
 # alias vi="vim"	# use vim by default
-alias less="less -S"	# less with no wordwrap
+alias less="less -S" # less with no wordwrap
 alias wcl="wc -l"
 
 alias tree="tree -C"
 
 # utils
 alias reload=". ~/.bashrc"
-alias edit='eval "$EDITOR"'	# open default editor
-alias cpwd="pwd | tr -d '\n' | pbcopy"	# copy current path to clipboard
+alias edit='eval "$EDITOR"'            # open default editor
+alias cpwd="pwd | tr -d '\n' | pbcopy" # copy current path to clipboard
 # copy last executed command
 alias cpcmd="history 2 | head -1 | sed 's/^ *[0-9]* *//' | pbcopy"
 # recursive folder sizes in current dir
@@ -43,16 +44,16 @@ alias lessc="less -r"
 alias hist="cat $historyLogPath/custom*"
 # show all custom history files with fzf
 alias histfzf="cat $historyLogPath/custom* | fzf"
-alias revrows="rev"       # reverse chars in each line
-alias revlines="tail -r"  # reverse order of lines
-alias space="du -ha . | sort -rh | less" # find folders which take up most space
+alias revrows="rev"                              # reverse chars in each line
+alias revlines="tail -r"                         # reverse order of lines
+alias space="du -ha . | sort -rh | less"         # find folders which take up most space
 alias files="du --inodes -d 3 | sort -rh | less" # find folders with most files in them with recursive folders for given depth
-alias files2="du --inodes -S | sort -rh | less" # find folders with most files in them
+alias files2="du --inodes -S | sort -rh | less"  # find folders with most files in them
 
 # search
-alias fr='find / 2> /dev/null -iname '  # find root
-alias fh='find . 2> /dev/null -iname '  # find here
-alias f="fr"                            # f is by default find root
+alias fr='find / 2> /dev/null -iname ' # find root
+alias fh='find . 2> /dev/null -iname ' # find here
+alias f="fr"                           # f is by default find root
 
 # git
 alias g="git"
@@ -74,10 +75,10 @@ alias grv="git remote -v"
 alias gl='git log --oneline --all --graph --pretty="%C(blue)%h%C(reset) %C(auto)%d%C(reset)- %an %C(green)(%ar)%C(reset) %s"'
 
 # xcv cut/copy/paste
-alias fsx="xcv x"   # cut
-alias fsc="xcv c"   # copy
-alias fsv="xcv v"   # paste
-alias fsl="xcv l"   # list
+alias fsx="xcv x" # cut
+alias fsc="xcv c" # copy
+alias fsv="xcv v" # paste
+alias fsl="xcv l" # list
 
 # fasd auto-sets aliases:
 #alias a='fasd -a'        # any
@@ -93,14 +94,13 @@ alias fsl="xcv l"   # list
 # alias coded='d -e code'   # quick opening directories with code
 # alias j="z"
 
-
 # data science
-alias csv="xsv"           # xsv is csv by default, the tsv variant is implemented as a function
-alias tsvtk="csvtk -t"    # tsv variant of csvtk
-alias dm="datamash -H"       # datamash with headers
-alias dmc="datamash -H -t,"  # datamash with headers and tsv
-alias jqc="jq -C"  # jq with color
-alias jqv="jqc . | lessc"  # jq and less with color
+alias csv="xsv"             # xsv is csv by default, the tsv variant is implemented as a function
+alias tsvtk="csvtk -t"      # tsv variant of csvtk
+alias dm="datamash -H"      # datamash with headers
+alias dmc="datamash -H -t," # datamash with headers and tsv
+alias jqc="jq -C"           # jq with color
+alias jqv="jqc . | lessc"   # jq and less with color
 alias len="awk '{print length}'"
 
 # alias grep="ggrep"
@@ -133,3 +133,11 @@ alias p="python"
 alias tab2nl="tr $'\t' '\n'"
 # alias excel="open -a /Applications/Microsoft\ Excel.app"
 alias nb="jupyter notebook"
+
+alias pbd=/usr/libexec/PlistBuddy
+alias pbdc='pbd -c print '
+
+alias psock='ssh -D 5555 vdi -N -f'
+
+alias phttp='ssh -N jump -L 3128:10.99.5.253:3128 -f'
+alias forti='openfortivpn -o '

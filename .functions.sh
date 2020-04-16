@@ -135,3 +135,11 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+
+newpass () {
+  sf-pwgen --algorithm memorable --count 2 --length 24 | paste -s -d -- '-'
+}
+
+newmac () {
+  sudo ifconfig en0 ether "$(openssl rand -hex 6 | sed 's%\(..\)%\1:%g; s%.$%%')"
+}
