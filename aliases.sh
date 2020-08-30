@@ -1,5 +1,5 @@
 # Workaround for broken apropos command.
-alias apropos="$HOME/bin/apropos.macos_10.15.1"
+# alias apropos="$HOME/bin/apropos.macos_10.15.1"
 
 # navigation
 alias ..='cd ..'
@@ -79,20 +79,6 @@ alias fsx="xcv x" # cut
 alias fsc="xcv c" # copy
 alias fsv="xcv v" # paste
 alias fsl="xcv l" # list
-
-# fasd auto-sets aliases:
-#alias a='fasd -a'        # any
-#alias s='fasd -si'       # show / search / select
-#alias d='fasd -d'        # directory
-#alias f='fasd -f'        # file
-#alias sd='fasd -sid'     # interactive directory selection
-#alias sf='fasd -sif'     # interactive file selection
-#alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-#alias zz='fasd_cd -d -i' # cd with interactive selection
-# also add these:
-# alias codef='f -e code'   # quick opening files with code
-# alias coded='d -e code'   # quick opening directories with code
-# alias j="z"
 
 # data science
 alias csv="xsv"             # xsv is csv by default, the tsv variant is implemented as a function

@@ -71,9 +71,9 @@ histbyc()  { awk -F, "{ d[\$$1]+= \$$2 } END { for (k in d) print d[k] \"\t\" k 
 #export -f histbyc
 
 # histogram of words in text (space seperated)
-# wordhist  () { awk '{ split($0,words," "); for (w in words) d[words[w]]++ } END { for (w in d) print d[w] "\t" w }' | sort -nr;} && export -f wordhist
+wordhist  () {awk '{ split($0,words," "); for (w in words) d[words[w]]++ } END { for (w in d) print d[w] "\t" w }' | sort -nr;} && export wordhist
 # histogram of bigrams (tuples of words) in text (space seperated)
-# word2hist () { awk '{ split($0,words," "); for (w in words) { if (length(prev)>0) d[prev" "words[w]]++; prev=words[w] } } END { for (w in d) print d[w] "\t" w }' | sort -nr;} && export -f word2hist
+word2hist () {awk '{ split($0,words," "); for (w in words) { if (length(prev)>0) d[prev" "words[w]]++; prev=words[w] } } END { for (w in d) print d[w] "\t" w }' | sort -nr;} && export word2hist
 
 # csv to tsv
 c2t() { xsv fmt -t $'\t'; }
@@ -96,6 +96,7 @@ tsv() {
     shift && command xsv $cmd -d"\t" $@ | c2t
 }
 # same as tsv but without output reformatting
+
 tsv_() {
     local cmd=$1
     shift && command xsv $cmd -d"\t" $@
@@ -133,7 +134,7 @@ extract()  {
 }
 
 newpass()  {
-    sf-pwgen --algorithm memorable --count 2 --length 24 | paste -s -d -- '-'
+    sf-pwgen --algorithm memorable --count 4 --length 3 | paste -s -d -- '-'
 }
 
 newmac()  {
@@ -151,10 +152,6 @@ cfrebuild()  {
         --template-body "$STACK_PATH" \
         --capabilities CAPABILITY_IAM \
         --capabilities CAPABILITY_NAMED_IAM
-}
-
-newpass () {
-  sf-pwgen --algorithm memorable --count 2 --length 24 | paste -s -d -- '-'
 }
 
 newmac () {
