@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
-SAVEHIST=100000
+export SAVEHIST=100000
 setopt nomatch
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
@@ -51,7 +51,6 @@ promptinit
 # source /opt/local/etc/zshenv
 # source /opt/local/etc/zshrc
 
-export IN_API_KEY='4d10f8e31dfa4800994534c4e2c426e1'
 # ===============================================================
 # ===================== $PATH SETTINGS ==========================
 # ===============================================================
@@ -79,7 +78,7 @@ export WORKON_HOME="$HOME/.virtualenvs"
 export VIRTUALENVWRAPPER_PYTHON='/opt/local/bin/python3.7'
 export VIRTUALENVWRAPPER_VIRTUALENV='/opt/local/bin/virtualenv-3.7'
 export VIRTUALENVWRAPPER_VIRTUALENV_CLONE='/opt/local/bin/virtualenv-clone-3.7'
-source "/opt/local/bin/virtualenvwrapper.sh-3.7"
+source /opt/local/bin/virtualenvwrapper.sh-3.7
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
@@ -123,11 +122,14 @@ _cfn-cli() {
   eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CFN_CLI_COMPLETE=complete-zsh  cfn-cli)
 }
 
+# TODO: Переписать во что-то понятное и читаемое
 if [[ "$(basename -- ${(%):-%x})" != "_cfn-cli" ]]; then
   compdef _cfn-cli cfn-cli
 fi
+
 # ==================================================================
 # eval "$(chef shell-init zsh)"
+# ==================================================================
 
 source /Users/admin/.config/broot/launcher/bash/br
 
@@ -137,8 +139,5 @@ export PATH=$PATH:$HOME/.pulumi/bin
 
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '/Users/admin/yandex-cloud/path.bash.inc' ]; then source '/Users/admin/yandex-cloud/path.bash.inc'; fi
-
-# The next line enables shell command completion for yc.
-if [ -f '/Users/admin/yandex-cloud/completion.zsh.inc' ]; then source '/Users/admin/yandex-cloud/completion.zsh.inc'; fi
 
 eval "$(direnv hook zsh)"

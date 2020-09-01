@@ -9,7 +9,7 @@ Host *
   IdentityFile ~/.ssh/id_ed25519
   IdentityFile ~/.ssh/id_rsa
   # ключи стоит хранить шифроваными
-  # MacOS умеет зранить пароль от ключа в ключницу
+  # MacOS умеет хранить пароль от SSH-ключа в keychain
   UseKeychain yes
   TCPKeepAlive yes
   AddKeysToAgent yes
@@ -27,7 +27,7 @@ Host *
   PermitLocalCommand yes
   IdentitiesOnly yes
 
-  # Актуальные надежные шифры для PCI-DSS
+  # Актуальные шифры для PCI-DSS
   Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-cbc,aes256-ctr
   MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha1,hmac-md5
   KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
@@ -50,10 +50,10 @@ Host jump
   User vasin-vv
 
 Host 10.99.18.45 10.99.18.46 10.99.18.47 10.99.18.48 10.99.18.49
-  User fedkin
+  User vasin
 
 Host 10.99.10.*
-  User fedkin
+  User vasin
 
 Host 10.99.* !10.99.32.22 !10.99.36.220
   User vasin-vv
@@ -71,7 +71,7 @@ Host vdi
   StrictHostKeyChecking yes
 
 Host 10.213.212.* 10.216.212.* 10.216.216.*
-  User fedkin
+  User vasin
   ProxyJump vdi
   StrictHostKeyChecking ask
   ForwardAgent yes
@@ -79,7 +79,7 @@ Host 10.213.212.* 10.216.212.* 10.216.216.*
   ForwardX11Trusted yes
 
 Host multigate01-uat
-  User fedkin-uat
+  User vasin-uat
   HostName 10.216.216.115
   ProxyJump vdi
   LocalForward 9996 localhost:9996
