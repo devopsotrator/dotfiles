@@ -7,7 +7,7 @@ source "$DOTFILES/functions.sh"
 
 # $include "$DOTFILES/.inputrc" # doesn't work on Mac
 
-export all functions
+# export all functions
 # causes sub bash calls (like with xargs) throw errors
 # eval "$(declare -F | sed -e 's/-f /-fx /')"
 
