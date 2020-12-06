@@ -1,5 +1,5 @@
 # Workaround for broken apropos command.
-alias apropos="$HOME/bin/apropos.macos_10.15.1"
+# alias apropos="$HOME/bin/apropos.macos_10.15.1"
 
 # navigation
 alias ..='cd ..'

@@ -2,6 +2,7 @@
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=3000
 SAVEHIST=10000
+
 setopt nomatch
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
@@ -24,21 +25,16 @@ setopt NO_CASE_GLOB
 unsetopt autocd beep extendedglob notify
 
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-# zstyle :compinstall filename '/Users/admin/.zshrc'
-
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 # zmodload zsh/zprof
 # autoload bashcompinit && bashcompinit
 # autoload -U promptinit; promptinit
 # export ZDOT="/opt/local/etc"
 
-source /opt/local/etc/zshenv
-source /opt/local/etc/zshrc
+# source /opt/local/etc/zshenv
+# source /opt/local/etc/zshrc
 
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -55,12 +51,13 @@ export VCD_USE_COLORED_OUTPUT=1
 export JAVA_OPTS="-Dfile.encoding=UTF-8"
 
 export WORKON_HOME="$HOME/.virtualenvs"
-export VIRTUALENVWRAPPER_PYTHON='/opt/local/bin/python3.7'
-export VIRTUALENVWRAPPER_VIRTUALENV='/opt/local/bin/virtualenv-3.7'
-export VIRTUALENVWRAPPER_VIRTUALENV_CLONE='/opt/local/bin/virtualenv-clone-3.7'
-source "/opt/local/bin/virtualenvwrapper.sh-3.7"
+export VIRTUALENVWRAPPER_PYTHON='/opt/local/bin/python3.8'
+export VIRTUALENVWRAPPER_VIRTUALENV='/opt/local/bin/virtualenv-3.8'
+export VIRTUALENVWRAPPER_VIRTUALENV_CLONE='/opt/local/bin/virtualenv-clone-3.8'
+source /opt/local/bin/virtualenvwrapper.sh-3.8
 
-export EDITOR='subl -w'
+export EDITOR='bbedit'
+# export EDITOR='subl -w'
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
@@ -87,9 +84,15 @@ export DOTFILES="$HOME/dotfiles"
 source "$DOTFILES/.all.sh"
 source "/opt/local/share/tldr-cpp-client/autocomplete/complete.zsh"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk8/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
 
 source /opt/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # opam configuration
 test -r /Users/admin/.opam/opam-init/init.zsh && . /Users/admin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+source /opt/local/share/tldr-cpp-client/autocomplete/complete.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /Users/admin/.config/broot/launcher/bash/br
