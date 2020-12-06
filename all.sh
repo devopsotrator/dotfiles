@@ -2,8 +2,8 @@
 
 # source files
 # source "$DOTFILES/.paths.sh"
-source "$DOTFILES/.aliases.sh"
-source "$DOTFILES/.functions.sh"
+source "$DOTFILES/aliases.sh"
+source "$DOTFILES/functions.sh"
 
 # $include "$DOTFILES/.inputrc" # doesn't work on Mac
 
