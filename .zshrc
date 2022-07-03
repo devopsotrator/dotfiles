@@ -42,6 +42,7 @@ export GOBIN="$GOPATH/bin"
 PATH="$PATH:$HOME/bin"
 PATH="$PATH:$GOBIN"
 PATH="$PATH:$HOME/Library/Python/3.7/bin"
+PATH="$PATH:/usr/local/sessionmanagerplugin/bin"
 
 # Finished adapting your PATH environment variable for use with MacPorts.
 export PATH
@@ -56,8 +57,8 @@ export VIRTUALENVWRAPPER_VIRTUALENV='/opt/local/bin/virtualenv-3.8'
 export VIRTUALENVWRAPPER_VIRTUALENV_CLONE='/opt/local/bin/virtualenv-clone-3.8'
 source /opt/local/bin/virtualenvwrapper.sh-3.8
 
-export EDITOR='bbedit'
-# export EDITOR='subl -w'
+# export EDITOR='bbedit'
+export EDITOR='subl -w'
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
@@ -81,8 +82,8 @@ _fzf_compgen_dir() {
 
 export DOTFILES="$HOME/dotfiles"
 
-source "$DOTFILES/.all.sh"
-source "/opt/local/share/tldr-cpp-client/autocomplete/complete.zsh"
+source "$DOTFILES/all.sh"
+# source "/opt/local/share/tldr-cpp-client/autocomplete/complete.zsh"
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
@@ -91,8 +92,9 @@ source /opt/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # opam configuration
 test -r /Users/admin/.opam/opam-init/init.zsh && . /Users/admin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-source /opt/local/share/tldr-cpp-client/autocomplete/complete.zsh
+# source /opt/local/share/tldr-cpp-client/autocomplete/complete.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/admin/.config/broot/launcher/bash/br
+# source /Users/admin/.config/broot/launcher/bash/br
+PATH=$PATH:~/tmp/homebrew/sbin:~/tmp/homebrew/bin

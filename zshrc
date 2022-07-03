@@ -64,21 +64,21 @@ PATH="$PATH":/Users/admin/.local/bin
 PATH="$PATH:$HOME/Library/Python/3.7/bin"
 PATH="$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/3.7/bin"
 PATH="$PATH:$HOME/Applications/Firefox.app/Contents/MacOS"
+PATH="$PATH":"$HOME/Library/Python/3.8/bin"
 
 export DOTFILES="$HOME/dotfiles"
 
 source "$DOTFILES/all.sh"
-source "/opt/local/share/tldr-cpp-client/autocomplete/complete.zsh"
-source /opt/local/bin/aws_zsh_completer.sh
+# source "/opt/local/share/tldr-cpp-client/autocomplete/complete.zsh"
+# source /opt/local/bin/aws_zsh_completer.sh
 
 # Created by `userpath` on 2020-05-20 10:37:23
 export PATH="$PATH:/Users/admin/.local/bin"
 
-export WORKON_HOME="$HOME/.virtualenvs"
-export VIRTUALENVWRAPPER_PYTHON='/opt/local/bin/python3.7'
-export VIRTUALENVWRAPPER_VIRTUALENV='/opt/local/bin/virtualenv-3.7'
-export VIRTUALENVWRAPPER_VIRTUALENV_CLONE='/opt/local/bin/virtualenv-clone-3.7'
-source /opt/local/bin/virtualenvwrapper.sh-3.7
+export VIRTUALENVWRAPPER_PYTHON='/opt/local/bin/python3.8'
+export VIRTUALENVWRAPPER_VIRTUALENV='/opt/local/bin/virtualenv-3.8'
+export VIRTUALENVWRAPPER_VIRTUALENV_CLONE='/opt/local/bin/virtualenv-clone-3.8'
+# source /opt/local/bin/virtualenvwrapper.sh-3.8
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
@@ -96,7 +96,7 @@ _fzf_compgen_dir() {
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
 export JAVA_OPTS="-Dfile.encoding=UTF-8"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
 
 fpath=(/Users/admin/dotfiles/zsh-completion $fpath)
 # fpath=(/Users/admin/.zsh/gradle-completion $fpath)
@@ -115,7 +115,7 @@ function _pip_completion {
 compctl -K _pip_completion pip3
 # pip zsh completion end
 
-eval "$(register-python-argcomplete pipx)"
+# eval "$(register-python-argcomplete pipx)"
 # eval "$(_SCEPTRE_COMPLETE=source_zsh sceptre)"
 #compdef cfn-cli
 _cfn-cli() {
@@ -131,7 +131,7 @@ fi
 # eval "$(chef shell-init zsh)"
 # ==================================================================
 
-source /Users/admin/.config/broot/launcher/bash/br
+# source /Users/admin/.config/broot/launcher/bash/br
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
@@ -140,4 +140,18 @@ export PATH=$PATH:$HOME/.pulumi/bin
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '/Users/admin/yandex-cloud/path.bash.inc' ]; then source '/Users/admin/yandex-cloud/path.bash.inc'; fi
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/admin/yandex-cloud/completion.zsh.inc' ]; then source '/Users/admin/yandex-cloud/completion.zsh.inc'; fi
+
+# [[ /opt/local/bin/kubectl ]] && source <(kubectl completion zsh)
+export PATH="/Users/admin/bin/Sencha/Cmd:$PATH"
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.2.18/gems/vagrant-2.2.18/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
+
+source /opt/local/share/nvm/init-nvm.sh
+source /opt/local/share/tldr-cpp-client/autocomplete/complete.zsh
